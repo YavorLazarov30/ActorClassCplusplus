@@ -67,8 +67,12 @@ public:
 			changeMovie();
 			break;
 		case 2:
+			cout << "You want to change the Actor. Change him!" << endl;
+			changeName();
 			break;
 		case 3:
+			cout << "You want to change the actors age! Change it!" << endl;
+			changeAge();
 			break;
 		case 4:
 			cout << "You want to change the number and the names of the awards! Change them! ";
