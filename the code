@@ -1,0 +1,111 @@
+#include <iostream>
+
+
+
+using namespace std;
+
+#define MAX 10
+class Actor {
+	char *movie;
+	char *name;
+	int age;
+	int awards;
+	char name_Awards[MAX][80];
+public:
+	Actor() {
+}
+	Actor(char *m, char *n, int a, int aw) {
+		movie = m;
+		name = n;
+		age = a;
+		awards = aw;
+		for (int i = 0; i < awards; i++) {
+			cout << "Role " << i + 1 << ": ";
+			cin>>name_Awards[i];
+		}
+	}
+	void changeMovie() {
+		
+		cout << "The new movie: ";
+		cin >> movie;
+	}
+	void changeName() {
+		cout << "The new actor: ";
+		cin>>name;
+	}
+	void changeAge() {
+		
+		cout << "How old are " << name << "? : ";
+		
+        cin>>age;
+
+	}
+	void changeAwards() {
+		int award;
+		cout << "How much awards he have? : ";
+		cin >> award;
+		awards = award;
+		for (int i = 0; i < awards; i++) {
+			cout << "Role " << i + 1<<": ";
+			cin>>name_Awards[i];
+		}
+
+	}
+
+	void changeMaker() {
+		cout << "Menu" << endl;
+		cout << "====================================" << endl;
+		cout << "For change movie press 1: " << endl;
+		cout << "For change the actor press 2: " << endl;
+		cout << "For change the actors years press 3: " << endl;
+		cout << "For change the actors rolles press 4: " << endl;
+		int choice;
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			cout << "You want to change the movie. Change it!" << endl;
+			changeMovie();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			cout << "You want to change the number and the names of the awards! Change them! ";
+			changeAwards();
+			break;
+		}
+	}
+	void Show() {
+		cout << "== == == == == == == == == == == == == == == == == "<<endl;
+		cout << "Movie: " <<movie<<endl;
+		cout << "Name: " <<name<<endl;
+		cout << "Age: " << age << endl;
+		cout << "Awards: " << awards << endl;
+		for (int i = 0; i < awards; i++) {
+			cout << "Role " << i+1 << ": " << name_Awards[i]<<endl;
+		}
+		cout << "=======================================================" << endl;
+    }
+
+
+
+};
+
+void main() {
+	char name[80], movie[80];
+	int awards, age=0;
+	cout << "Movie: ";
+	cin >> movie;
+	cout << "Actor name: ";
+	cin >> name;
+	cout << "Actor age: ";
+	cin >> age;
+	cout << "Awards: ";
+	cin >> awards;
+	Actor a(movie, name, age, awards);
+    a.Show();
+	a.changeMaker();
+	a.Show();
+	system("pause>nul");
+}
